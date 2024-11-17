@@ -1,2 +1,5 @@
-# Steam Gamertag Search
- Allows you to search and get gamertag from Steam
+# Steam Gamertag Search bar
+
+---
+
+Allows you to __search__ and _get_ gamertag from Steam
