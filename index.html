@@ -6,26 +6,24 @@
     <title>Gamertag Finder</title>
     <link rel="stylesheet" href="./css/styles.css">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Barre de navigation -->
     <nav class="navbar">
         <div class="container">
+            <a href="#" class="brand">Steam Gamertag</a>
             <ul class="nav-links">
-                <li><a href="#" class="nav-item">Home</a></li>
-                <li><a href="#" class="nav-item">Features</a></li>
-                <li><a href="#" class="nav-item">About</a></li>
+                <li><a href="#" class="nav-item">Accueil</a></li>
+                <li><a href="#" class="nav-item">Fonctionnalités</a></li>
+                <li><a href="#" class="nav-item">À propos</a></li>
             </ul>
         </div>
     </nav>
 
     <!-- Formulaire de recherche -->
-    <div class="container">
-        <br>
-        <br>
-        <br>
-        <h1 class="title">Search a Steam Gamertag</h1>
+    <div class="container search-container">
+        <h1 class="title">Rechercher un Gamertag Steam</h1>
         <br>
         <form class="search-form" id="gamertagForm">
             <input type="text" placeholder="Gamertag Steam..." class="search-input" id="gamertagInput">
@@ -33,6 +31,11 @@
         </form>
     </div>
 
-    <script src="script.js"></script>
+    <!-- Section de résultats -->
+    <div class="container result-container" id="resultContainer">
+        <!-- Les résultats s'afficheront ici dynamiquement -->
+    </div>
+
+    <script src="./js/script.js"></script>
 </body>
 </html>
