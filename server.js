@@ -18,7 +18,8 @@ app.get('/', (req, res) => {
 app.get('/resolveVanityURL', async (req, res) => {
     console.log('Requête reçue pour resolveVanityURL avec params :', req.query);
     const { vanityurl } = req.query;
-    const API_KEY = 'B4A30F1B7AC5D792F6442ACA9B1C0F90';
+    //const API_KEY = 'B4A30F1B7AC5D792F6442ACA9B1C0F90';
+    const API_KEY = process.env.STEAM_API_KEY;
 
     try {
         const response = await axios.get(`https://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/`, {
