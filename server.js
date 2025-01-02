@@ -10,11 +10,11 @@ const app = express();
 app.use(cors());
 
 // Servir les fichiers statiques (frontend)
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(__dirname));
 
-// Route par défaut
+// Route par défaut pour servir `index.html` depuis la racine
 app.get('/', (req, res) => {
-    res.send(path.join(__dirname, 'public', 'index.html'));
+    res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 
