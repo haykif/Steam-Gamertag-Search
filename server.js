@@ -9,8 +9,9 @@ const app = express();
 // Middleware CORS pour autoriser le front-end à parler au back-end
 app.use(cors());
 
-// Servir les fichiers statiques (frontend)
-app.use(express.static(__dirname));
+// Servir les fichiers CSS et JS directement
+app.use('/css', express.static(path.join(__dirname, 'css')));
+app.use('/js', express.static(path.join(__dirname, 'js')));
 
 // Route par défaut pour servir `index.html` depuis la racine
 app.get('/', (req, res) => {
