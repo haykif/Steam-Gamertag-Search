@@ -18,19 +18,19 @@ document.addEventListener('DOMContentLoaded', () => {
         resultContainer.innerHTML = '';
 
         // Étape 1 : Essayer de résoudre le vanity URL
-        fetch(`http://localhost:3000/resolveVanityURL?vanityurl=${gamertag}`)
+        fetch(`/api/resolveVanityURL?vanityurl=${gamertag}`)
             .then(response => response.json())
             .then(data => {
                 if (data.response.success === 1) {
                     // Vanity URL résolue avec succès
                     const steamID64 = data.response.steamid;
                     console.log(`SteamID64 trouvé pour le vanity URL "${gamertag}" : ${steamID64}`);
-                    return fetch(`http://localhost:3000/getPlayerSummaries?steamid=${steamID64}`);
+                    return fetch(`/api/getPlayerSummaries?steamid=${steamID64}`);
                 } else {
                     // Si ResolveVanityURL échoue, considérer que c'est un SteamID64
                     console.warn(`Impossible de résoudre "${gamertag}" en vanity URL. Tentative avec SteamID64.`);
                     console.warn(`Tentative réussie avec succès`);
-                    return fetch(`http://localhost:3000/getPlayerSummaries?steamid=${gamertag}`);
+                    return fetch(`/api/getPlayerSummaries?steamid=${gamertag}`);
                 }
             })
             .then(response => {
@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     `;
 
                     // Charger les jeux du joueur
-                    return fetch(`http://localhost:3000/getOwnedGames?steamid=${player.steamid}`);
+                    return fetch(`/api/getOwnedGames?steamid=${player.steamid}`);
                 } else {
                     resultContainer.innerHTML = `<p style="color: #ff007f;"><b>Aucun joueur trouvé pour ce SteamID.</b></p>`;
                 }
@@ -71,10 +71,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     games.sort((a, b) => b.playtime_forever - a.playtime_forever);
 
                     // Limiter l'affichage à 10 jeux
-                    const topGames = games.slice(0, 10);
+                    const topGames = games.slice(0, 20);
 
                     // Créer une liste des jeux
-                    let gamesHTML = `<h3>Top 10 jeux :</h3><ul>`;
+                    let gamesHTML = `<h3>Top 20 jeux :</h3><ul>`;
                     topGames.forEach(game => {
                         const playtimeHours = (game.playtime_forever / 60).toFixed(1); // Convertir en heures
                         gamesHTML += `
