@@ -1,3 +1,5 @@
+import { inject } from '@vercel/analytics';
+
 document.addEventListener('DOMContentLoaded', () => {
     const gamertagForm = document.getElementById('gamertagForm');
     const gamertagInput = document.getElementById('gamertagInput');
@@ -102,3 +104,5 @@ document.addEventListener('DOMContentLoaded', () => {
             });
     });
 });
+
+inject();
