@@ -15,7 +15,7 @@
     "rewrites": [
       {
         "src": "/(.*)",
-        "dest": "/api"
+        "dest": "./api"
       }
     ]
   }
