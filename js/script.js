@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const gamertagForm = document.getElementById('gamertagForm');
     const gamertagInput = document.getElementById('gamertagInput');
     const resultContainer = document.getElementById('resultContainer');
-    const loader = document.getElementById('loader'); // Loader pour indiquer le chargement
+    const loader = document.getElementById('loader');
 
     gamertagForm.addEventListener('submit', (e) => {
         e.preventDefault();
@@ -71,10 +71,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     games.sort((a, b) => b.playtime_forever - a.playtime_forever);
 
                     // Limiter l'affichage à 10 jeux
-                    const topGames = games.slice(0, 20);
+                    const topGames = games.slice(0, 10);
 
                     // Créer une liste des jeux
-                    let gamesHTML = `<h3>Top 20 jeux :</h3><ul>`;
+                    let gamesHTML = `<h3>Top 10 jeux :</h3><ul>`;
                     topGames.forEach(game => {
                         const playtimeHours = (game.playtime_forever / 60).toFixed(1); // Convertir en heures
                         gamesHTML += `

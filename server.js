@@ -4,7 +4,6 @@ const axios = require('axios');
 const path = require('path');
 
 const app = express();
-// const PORT = 3000; Le serveur tournera sur le port 3000
 
 // Middleware CORS pour autoriser le front-end à parler au back-end
 app.use(cors());
@@ -25,7 +24,6 @@ app.get('/', (req, res) => {
 app.get('/resolveVanityURL', async (req, res) => {
     console.log('Requête reçue pour resolveVanityURL avec params :', req.query);
     const { vanityurl } = req.query;
-    // const API_KEY = '5DA1986A3042A92A5D66781E4A853A48';
     const API_KEY = process.env.STEAM_API_KEY;
 
     try {
@@ -47,7 +45,6 @@ app.get('/resolveVanityURL', async (req, res) => {
 app.get('/getPlayerSummaries', async (req, res) => {
     console.log('Requête reçue pour getPlayerSummeries avec params :', req.query);
     const { steamid } = req.query;
-    // const API_KEY = '5DA1986A3042A92A5D66781E4A853A48';
     const API_KEY = process.env.STEAM_API_KEY;
 
     if (!steamid) {
@@ -101,12 +98,5 @@ app.get('/getOwnedGames', async (req, res) => {
         res.status(500).json({ error: error.message });
     }
 });
-
-
-/* Lancement du serveur sur le port défini
-app.listen(PORT, () => {
-    console.log(`Serveur actif sur http://localhost:${PORT}`);
-});
-*/
 
 module.exports = app;
