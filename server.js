@@ -23,8 +23,8 @@ app.get('/', (req, res) => {
 app.get('/resolveVanityURL', async (req, res) => {
     console.log('Requête reçue pour resolveVanityURL avec params :', req.query);
     const { vanityurl } = req.query;
-    //const API_KEY = '5DA1986A3042A92A5D66781E4A853A48';
-    const API_KEY = process.env.STEAM_API_KEY;
+    const API_KEY = '5DA1986A3042A92A5D66781E4A853A48';
+    //const API_KEY = process.env.STEAM_API_KEY;
 
     try {
         const response = await axios.get(`https://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/`, {
@@ -45,8 +45,8 @@ app.get('/resolveVanityURL', async (req, res) => {
 app.get('/getPlayerSummaries', async (req, res) => {
     console.log('Requête reçue pour getPlayerSummeries avec params :', req.query);
     const { steamid } = req.query;
-    // const API_KEY = '5DA1986A3042A92A5D66781E4A853A48';
-    const API_KEY = process.env.STEAM_API_KEY;
+    const API_KEY = '5DA1986A3042A92A5D66781E4A853A48';
+    // const API_KEY = process.env.STEAM_API_KEY;
 
     if (!steamid) {
         return res.status(400).json({ error: 'Le paramètre "steamid" est requis.' });
@@ -76,8 +76,8 @@ app.get('/getPlayerSummaries', async (req, res) => {
 app.get('/getOwnedGames', async (req, res) => {
     console.log('Requête reçue pour getOwnedGames avec params :', req.query);
     const { steamid } = req.query;
-    // const API_KEY = '5DA1986A3042A92A5D66781E4A853A48';
-    const API_KEY = process.env.STEAM_API_KEY;
+    const API_KEY = '5DA1986A3042A92A5D66781E4A853A48';
+    // const API_KEY = process.env.STEAM_API_KEY;
 
     if (!steamid) {
         return res.status(400).json({ error: 'Le paramètre "steamid" est requis.' });
