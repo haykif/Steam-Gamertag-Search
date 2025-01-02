@@ -97,3 +97,5 @@ app.get('/getOwnedGames', async (req, res) => {
 app.listen(PORT, () => {
     console.log(`Serveur actif sur http://localhost:${PORT}`);
 });
+
+module.exports = app;
