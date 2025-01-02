@@ -8,11 +8,11 @@ const app = express();
 // Middleware CORS pour autoriser le front-end à parler au back-end
 app.use(cors());
 
-/* Route par défaut
+// Route par défaut
 app.get('/', (req, res) => {
     res.send('Backend Steam API Proxy is running!');
 });
-*/
+
 
 // Route pour résoudre un gamertag (ResolveVanityURL)
 app.get('/resolveVanityURL', async (req, res) => {
