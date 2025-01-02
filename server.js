@@ -39,7 +39,8 @@ app.get('/resolveVanityURL', async (req, res) => {
 app.get('/getPlayerSummaries', async (req, res) => {
     console.log('Requête reçue pour getPlayerSummeries avec params :', req.query);
     const { steamid } = req.query;
-    const API_KEY = 'B4A30F1B7AC5D792F6442ACA9B1C0F90';
+    // const API_KEY = 'B4A30F1B7AC5D792F6442ACA9B1C0F90';
+    const API_KEY = process.env.STEAM_API_KEY;
 
     if (!steamid) {
         return res.status(400).json({ error: 'Le paramètre "steamid" est requis.' });
@@ -69,7 +70,8 @@ app.get('/getPlayerSummaries', async (req, res) => {
 app.get('/getOwnedGames', async (req, res) => {
     console.log('Requête reçue pour getOwnedGames avec params :', req.query);
     const { steamid } = req.query;
-    const API_KEY = 'B4A30F1B7AC5D792F6442ACA9B1C0F90';
+    // const API_KEY = 'B4A30F1B7AC5D792F6442ACA9B1C0F90';
+    const API_KEY = process.env.STEAM_API_KEY;
 
     if (!steamid) {
         return res.status(400).json({ error: 'Le paramètre "steamid" est requis.' });
@@ -93,9 +95,10 @@ app.get('/getOwnedGames', async (req, res) => {
 });
 
 
-// Lancement du serveur sur le port défini
+/* Lancement du serveur sur le port défini
 app.listen(PORT, () => {
     console.log(`Serveur actif sur http://localhost:${PORT}`);
 });
+*/
 
 module.exports = app;
