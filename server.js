@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const axios = require('axios');
+const path = require('path');
 
 const app = express();
 // const PORT = 3000; // Le serveur tournera sur le port 3000
@@ -8,9 +9,12 @@ const app = express();
 // Middleware CORS pour autoriser le front-end à parler au back-end
 app.use(cors());
 
+// Servir les fichiers statiques (frontend)
+app.use(express.static(path.join(__dirname, 'public')));
+
 // Route par défaut
 app.get('/', (req, res) => {
-    res.send('Backend Steam API Proxy is running!');
+    res.send(path.join(__dirname, 'public', 'index.html'));
 });
 
 
