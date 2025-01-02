@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     // Afficher les jeux dans le container
                     resultContainer.innerHTML += gamesHTML;
                 } else {
-                    resultContainer.innerHTML += `<p style="color: #ff007f;">Aucun jeu trouvé.</p>`;
+                    resultContainer.innerHTML += `<p style="color: #ff007f;"><b>La personne souhaite ne pas rendre public les jeux qu'elle possède.</b></p>`;
                 }
             })
             .catch(err => {
