@@ -28,13 +28,13 @@ a partir de leur gamertag ou SteamID64.
 1. Clonez le repository :
 
     ```bash
-    git clone https://github.com/ton-utilisateur/steam-gamertag-finder.git
+    git clone https://github.com/haykif/steam-gamertag-finder.git
     cd steam-gamertag-finder
     ```
 
 2. Installez les dépendances :
 
-    ```bash
+    ```css
     npm install
     ```
 
@@ -46,7 +46,7 @@ a partir de leur gamertag ou SteamID64.
 
 4. Lancez l'application en local :
 
-    ```bash
+    ```css
     npm start
     ```
 
