@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const axios = require('axios');
+const favicon = require('serve-favicon');
 const path = require('path');
 const RateLimit = require('express-rate-limit');
 
@@ -11,6 +12,9 @@ const limiter = RateLimit({
     windowMs: 10 * 60 * 1000, // 10 minutes
     max: 150, // max 150 requetes par windowMs
 });
+
+// favicon de fou
+app.use(favicon(path.join(__dirname, 'favicon.ico')));
 
 // apply rate limiter to all requests
 app.use(limiter);
