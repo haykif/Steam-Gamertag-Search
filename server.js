@@ -33,6 +33,15 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
 
+// Route pour le about
+app.get('/about', (req, res) => {
+    res.sendFile(path.join(__dirname, 'html/about.html'));
+});
+
+// Route pour le about
+app.get('/features', (req, res) => {
+    res.sendFile(path.join(__dirname, 'html/features.html'));
+});
 
 // Route pour résoudre un gamertag (ResolveVanityURL)
 app.get('/resolveVanityURL', async (req, res) => {
