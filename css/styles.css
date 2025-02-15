@@ -247,6 +247,22 @@ body {
     animation: glowPulse 1.5s infinite;
 }
 
+/* Effet de transition lors du changement de page */
+.fade {
+    opacity: 0;
+    animation: fadeIn ease 1s forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
 /* Animations supplémentaires */
 @keyframes fadeIn {
     from {
