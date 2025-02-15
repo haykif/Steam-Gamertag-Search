@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     recentGamesHTML += `</ul>`;
                     resultContainer.innerHTML += recentGamesHTML;
                 } else {
-                    resultContainer.innerHTML += `<p style="color: #ff007f;"><b>Aucun jeu joué récemment. C'est pas un vrai gamer ce type!</b></p>`;
+                    resultContainer.innerHTML += `<p style="color: #ff007f;"><br><b>Aucun jeu joué récemment. C'est pas un vrai gamer ce type!</b></p>`;
                 }
             })
 
