@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Block affichage jeux récents
             .then(data => {
                 if (data.response && data.response.games && data.response.games.length > 0) {
-                    let recentGamesHTML = `<h3>Derniers jeux joués: </h3><br><h4>(2 dernières semaines)</h4><ul>`;
+                    let recentGamesHTML = `<h3 style="margin-bottom: none;">Derniers jeux joués: </h3><br><h4>(2 dernières semaines)</h4><ul>`;
                     data.response.games.forEach(game => {
                         const playtimeRecent = (game.playtime_2weeks / 60).toFixed(1);
                         recentGamesHTML += `
