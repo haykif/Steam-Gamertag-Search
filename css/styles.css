@@ -262,17 +262,6 @@ body {
     }
 }
 
-
-/* Animations supplémentaires */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
 @keyframes glowPulse {
     from {
         text-shadow: 0 0 5px var(--primary-color), 0 0 20px var(--primary-color);
