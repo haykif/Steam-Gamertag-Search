@@ -156,6 +156,13 @@ body {
     text-shadow: 0 0 10px var(--secondary-color);
 }
 
+.result-container h4 {
+    font-size: 1.3rem;
+    color: var(--secondary-color);
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 10px var(--secondary-color);
+}
+
 /* Avatar du joueur */
 .result-container img {
     border-radius: 15%;
