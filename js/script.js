@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(data => {
                 if (data.response && data.response.games && data.response.games.length > 0) {
                     let recentGamesHTML = `
-                                <h3 style="margin-bottom: none;">Derniers jeux joués: </h3>
+                                <h3 style="margin-bottom: 0;">Derniers jeux joués: </h3>
                                 <h4>(2 dernières semaines)</h4>
                                 <ul>`;
                     data.response.games.forEach(game => {

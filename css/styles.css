@@ -160,6 +160,7 @@ body {
     font-size: 1.3rem;
     color: var(--secondary-color);
     margin-bottom: 0.5rem;
+    margin-top: 0;
     text-shadow: 0 0 10px var(--secondary-color);
 }
 
