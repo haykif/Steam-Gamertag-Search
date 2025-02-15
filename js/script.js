@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Effet de transition entre les pages
-    /*const links = document.querySelectorAll("a");
+    const links = document.querySelectorAll("a");
 
     links.forEach(link => {
         link.addEventListener("click", (e) => {
@@ -151,5 +151,5 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Rétablir l'opacité de la page à l'affichage
-    document.body.style.opacity = 1;*/
+    document.body.style.opacity = 1;
 });
