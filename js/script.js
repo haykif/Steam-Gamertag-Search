@@ -1,8 +1,12 @@
+const { response } = require("express");
+
 document.addEventListener('DOMContentLoaded', () => {
     const gamertagForm = document.getElementById('gamertagForm');
     const gamertagInput = document.getElementById('gamertagInput');
     const resultContainer = document.getElementById('resultContainer');
     const loader = document.getElementById('loader');
+
+    let playerData;
 
     gamertagForm.addEventListener('submit', (e) => {
         e.preventDefault();
@@ -17,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
         loader.style.display = 'block';
         resultContainer.innerHTML = '';
 
-        // Étape 1 : Essayer de résoudre le vanity URL
+        // Résolution du vanity URL
         fetch(`/resolveVanityURL?vanityurl=${gamertag}`)
             .then(response => response.json())
             .then(data => {
@@ -32,13 +36,18 @@ document.addEventListener('DOMContentLoaded', () => {
                     return fetch(`/getPlayerSummaries?steamid=${gamertag}`);
                 }
             })
+
+            // Block profil privée/inaccessible
             .then(response => {
                 if (!response.ok) throw new Error('Ce profil est privé ou non accessible.');
                 return response.json();
             })
+
+            // Block affichage du profil
             .then(data => {
                 const player = data.response.players[0];
                 if (player) {
+                    playerData = player; // Stocke le joueur pour le réutiliser plus tard
                     resultContainer.innerHTML = `
                         <h3>Profil de ${player.personaname}</h3>
                         <img src="${player.avatarfull}" alt="Avatar de ${player.personaname}">
@@ -50,10 +59,14 @@ document.addEventListener('DOMContentLoaded', () => {
                     resultContainer.innerHTML = `<p style="color: #ff007f;"><b>Aucun joueur trouvé pour ce SteamID.</b></p>`;
                 }
             })
+
+            // Block impossible de récup jeux
             .then(response => {
                 if (!response.ok) throw new Error('Impossible de récupérer les jeux.');
                 return response.json();
             })
+
+            // Block TOP 10 jeux
             .then(data => {
                 if (data.response && data.response.games) {
                     const games = data.response.games;
@@ -74,9 +87,42 @@ document.addEventListener('DOMContentLoaded', () => {
 
                     resultContainer.innerHTML += gamesHTML;
                 } else {
-                    resultContainer.innerHTML += `<p style="color: #ff007f;"><b>La personne souhaite ne pas rendre public les jeux qu'elle possède.</b></p>`;
+                    resultContainer.innerHTML += `<p style="color: #ff007f;"><b>La personne ne souhaite pas rendre public les jeux qu'elle possède.</b></p>`;
                 }
             })
+
+            // Block récup jeux joués récemment
+            .then(() => {
+                return fetch(`/getRecentlyPlayedGames?steamid=${playerData.steamid}`);
+            })
+
+            // Block impossible de récup jeux récents
+            .then(response => {
+                if (!response.ok) throw new Error('Impossible de récupérer les jeux récents.');
+                return response.json();
+            })
+
+            // Block affichage jeux récents
+            .then(data => {
+                if (data.response && data.response.games && data.response.games.length > 0) {
+                    let recentGamesHTML = `<h3>Derniers jeux joués: </h3><ul>`;
+                    data.response.games.forEach(game => {
+                        const playtimeRecent = (game.playtime_2weeks / 60).toFixed(1);
+                        recentGamesHTML += `
+                            <li>
+                                <span style="text-align: left">${game.name}</span>
+                                <span> ${playtimeRecent} heures dans les 2 dernières semaines</span>
+                                <a href="https://store.steampowered.com/app/${game.appid}" target="_blank"> Voir sur Steam</a>
+                            </li>`;
+                    })
+                    recentGamesHTML += `</ul>`;
+                    resultContainer.innerHTML += recentGamesHTML;
+                } else {
+                    resultContainer.innerHTML += `<p style="color: #ff007f;"><b>Aucun jeu joué récemment. C'est pas un vrai gamer ce type!</b></p>`;
+                }
+            })
+
+            // Block Erreur
             .catch(err => {
                 console.error(err);
                 resultContainer.innerHTML = `<p style="color: #ff007f;"><b>Erreur : ${err.message}</b></p>`;

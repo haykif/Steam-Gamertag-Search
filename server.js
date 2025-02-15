@@ -121,4 +121,18 @@ app.get('/getOwnedGames', async (req, res) => {
     }
 });
 
+app.get('/getRecentlyPlayedGames', async (req, res) => {
+    const { steamid } = req.query;
+    const API_KEY = process.env.STEAM_API_KEY; // Ta clé Steam stockée en variable d'env
+
+    try {
+        const response = await fetch(`https://api.steampowered.com/IPlayerService/GetRecentlyPlayedGames/v1/?key=${API_KEY}&steamid=${steamid}&format=json`);
+        const data = await response.json();
+        res.json(data);
+    } catch (error) {
+        res.status(500).json({ error: 'Erreur lors de la récupération des jeux récemment joués.' });
+    }
+});
+
+
 module.exports = app;
