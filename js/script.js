@@ -1,5 +1,3 @@
-const { response } = require("express");
-
 document.addEventListener('DOMContentLoaded', () => {
     const gamertagForm = document.getElementById('gamertagForm');
     const gamertagInput = document.getElementById('gamertagInput');
@@ -28,11 +26,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (data.response.success === 1) {
                     // Vanity URL résolue avec succès
                     const steamID64 = data.response.steamid;
-                    console.log(`SteamID64 trouvé pour "${gamertag}" : ${steamID64}`);
+                    console.log(`SteamID64 trouvé pour le vanity URL "${gamertag}" : ${steamID64}`);
                     return fetch(`/getPlayerSummaries?steamid=${steamID64}`);
                 } else {
                     // Si ResolveVanityURL échoue, considérer que c'est un SteamID64
-                    console.warn(`Impossible de résoudre "${gamertag}". Tentative avec SteamID64.`);
+                    console.warn(`Impossible de résoudre "${gamertag}" en vanity URL. Tentative avec SteamID64.`);
+                    console.warn(`Tentative réussie avec succès`);
                     return fetch(`/getPlayerSummaries?steamid=${gamertag}`);
                 }
             })
@@ -79,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         gamesHTML += `
                             <li>
                                 <span style="text-align: left">${game.name}</span>
-                                <span> ${playtimeHours} heures jouées</span>
+                                <span>Temps de jeu - ${playtimeHours} heures jouées</span>
                                 <a href="https://store.steampowered.com/app/${game.appid}" target="_blank">Voir sur Steam</a>
                             </li>`;
                     });
