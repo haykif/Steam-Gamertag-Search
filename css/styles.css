@@ -411,7 +411,8 @@ body {
 /* Media Queries pour la responsivité */
 @media (max-width: 768px) {
     .container {
-        width: auto;
+        width: 95%;
+        padding: 0 10px;
     }
 
     .nav-links {
