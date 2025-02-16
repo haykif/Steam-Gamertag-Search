@@ -26,7 +26,8 @@ app.use(cors());
 app.use('/css', express.static(path.join(__dirname, 'css')));
 app.use('/js', express.static(path.join(__dirname, 'js')));
 app.use('/ico', express.static(path.join(__dirname, 'ico')));
-app.use('/png', express.static(path.join(__dirname, 'png')));
+app.use('/img', express.static(path.join(__dirname, 'img')));
+app.use('/assets', express.static(path.join(__dirname, 'assets')));
 
 // Route par défaut pour servir `index.html` depuis la racine
 app.get('/', (req, res) => {
@@ -38,7 +39,7 @@ app.get('/about', (req, res) => {
     res.sendFile(path.join(__dirname, 'html/about.html'));
 });
 
-// Route pour le about
+// Route pour le features
 app.get('/features', (req, res) => {
     res.sendFile(path.join(__dirname, 'html/features.html'));
 });
