@@ -3,10 +3,14 @@
 
 /* Variables de couleur */
 :root {
-    --primary-color: #00ffcc; /* Couleur néon vert-bleu */
-    --secondary-color: #ff007f; /* Accent rose néon */
-    --background-color: #121212; /* Fond sombre */
-    --text-color: #e0e0e0; /* Texte légèrement gris */
+    /* Couleur néon vert-bleu */
+    --primary-color: #00ffcc;
+    /* Accent rose néon */
+    --secondary-color: #ff007f;
+    /* Fond sombre */
+    --background-color: #121212;
+    /* Texte légèrement gris */
+    --text-color: #e0e0e0;
 }
 
 /* Styles globaux */
@@ -22,7 +26,8 @@ body {
 
 /* Barre de navigation */
 .navbar {
-    background-color: #0f0f0f; /* Fond de la navbar légèrement plus foncé */
+    /* Fond de la navbar légèrement plus foncé */
+    background-color: #0f0f0f;
     padding: 1rem 0;
     animation: slideInTop 1s ease-in-out;
 }
@@ -34,10 +39,14 @@ body {
 }
 
 .navbar .container {
-    display: flex; /* Aligner les éléments horizontalement */
-    justify-content: flex-start; /* Aligner tout à gauche */
-    align-items: center; /* Alignement vertical */
-    gap: 60px; /* Espace entre la marque et les liens */
+    /* Aligner les éléments horizontalement */
+    display: flex;
+    /* Aligner tout à gauche */
+    justify-content: flex-start;
+    /* Alignement vertical */
+    align-items: center;
+    /* Espace entre la marque et les liens */
+    gap: 60px;
 }
 
 .brand {
@@ -96,10 +105,14 @@ body {
 }
 
 .search-form {
-    display: flex; /* Aligner la boîte de recherche et le bouton sur la même ligne */
-    justify-content: center; /* Centrer le formulaire */
-    align-items: center; /* Aligner verticalement */
-    gap: 15px; /* Espace entre le champ de recherche et le bouton */
+    /* Aligner la boîte de recherche et le bouton sur la même ligne */
+    display: flex;
+    /* Centrer le formulaire */
+    justify-content: center;
+    /* Aligner verticalement */
+    align-items: center;
+    /* Espace entre le champ de recherche et le bouton */
+    gap: 15px;
 }
 
 .search-input {
@@ -200,14 +213,17 @@ body {
 }
 
 .result-container li {
-    background: rgba(255, 255, 255, 0.05); /* Légère transparence pour l'arrière-plan */
+    /* Légère transparence pour l'arrière-plan */
+    background: rgba(255, 255, 255, 0.05);
     border: 1px solid var(--primary-color);
     border-radius: 10px;
     padding: 10px 15px;
     margin-bottom: 10px;
     display: flex;
-    justify-content: space-between; /* Espacement entre les éléments */
-    align-items: center; /* Aligne tout verticalement au centre */
+    /* Espacement entre les éléments */
+    justify-content: space-between;
+    /* Aligne tout verticalement au centre */
+    align-items: center;
     color: var(--text-color);
     box-shadow: 0 0 10px var(--primary-color);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -215,8 +231,10 @@ body {
 
 /* Alignement spécifique du temps de jeu */
 .result-container li span {
-    flex: 1; /* Prend toute la place entre le nom du jeu et le bouton */
-    text-align: center; /* Aligne le texte au centre */
+    /* Prend toute la place entre le nom du jeu et le bouton */
+    flex: 1;
+    /* Aligne le texte au centre */
+    text-align: center;
     font-weight: bold;
 }
 
@@ -254,6 +272,63 @@ body {
     animation: glowPulse 1.5s infinite;
 }
 
+/* === Styles pour la page Features === */
+.features {
+    padding: 3rem 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.section-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--primary-color);
+    text-shadow: 0 0 10px var(--primary-color);
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 0 1rem;
+}
+
+.feature-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid var(--primary-color);
+    border-radius: 15px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 0 10px var(--primary-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px var(--primary-color);
+}
+
+.feature-card h2 {
+    font-size: 1.8rem;
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+}
+
+.feature-card p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.feature-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 5px var(--secondary-color);
+}
+
 /* Effet de transition lors du changement de page */
 .fade {
     opacity: 0;
@@ -264,6 +339,7 @@ body {
     from {
         opacity: 0;
     }
+
     to {
         opacity: 1;
     }
@@ -273,6 +349,7 @@ body {
     from {
         text-shadow: 0 0 5px var(--primary-color), 0 0 20px var(--primary-color);
     }
+
     to {
         text-shadow: 0 0 10px var(--primary-color), 0 0 40px var(--primary-color);
     }
@@ -282,6 +359,7 @@ body {
     from {
         box-shadow: 0 0 10px var(--primary-color);
     }
+
     to {
         box-shadow: 0 0 20px var(--primary-color);
     }
@@ -291,6 +369,7 @@ body {
     from {
         box-shadow: 0 0 10px var(--secondary-color);
     }
+
     to {
         box-shadow: 0 0 20px var(--secondary-color);
     }
@@ -301,6 +380,7 @@ body {
         transform: translateY(-100%);
         opacity: 0;
     }
+
     to {
         transform: translateY(0);
         opacity: 1;
@@ -308,13 +388,69 @@ body {
 }
 
 @keyframes neonFlicker {
-    0%, 100% {
+
+    0%,
+    100% {
         text-shadow: 0 0 5px var(--primary-color), 0 0 10px var(--primary-color), 0 0 20px var(--primary-color), 0 0 40px var(--primary-color);
     }
+
     50% {
         text-shadow: 0 0 5px var(--primary-color), 0 0 15px var(--primary-color), 0 0 30px var(--primary-color), 0 0 60px var(--primary-color);
     }
+
     70% {
         text-shadow: 0 0 5px var(--primary-color), 0 0 5px var(--primary-color), 0 0 10px var(--primary-color), 0 0 20px var(--primary-color);
+    }
+}
+
+/* Media Queries pour la responsivité */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        padding: 0 10px;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .search-form {
+        flex-direction: column;
+    }
+
+    .search-input {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .result-container li {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .result-container li span,
+    .result-container li a {
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Pour les très petits écrans */
+@media (max-width: 480px) {
+    .title {
+        font-size: 2rem;
+    }
+
+    .nav-item {
+        font-size: 0.9rem;
     }
 }

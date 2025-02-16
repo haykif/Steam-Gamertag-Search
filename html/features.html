@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gamertag Finder - Fonctionnalités</title>
     <link rel="stylesheet" href="./css/styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Montserrat:wght@300;600&display=swap"
+        rel="stylesheet">
 </head>
+
 <body class="fade">
     <!-- Barre de navigation -->
     <nav class="navbar">
@@ -20,9 +24,47 @@
         </div>
     </nav>
 
-    <!-- Formulaire de recherche -->
-    <div class="container search-container">
-        <h1 class="title">Fonctionnalité à venir...</h1>
-    </div>
+    <!-- Section Fonctionnalités -->
+    <section class="features" id="features">
+        <div class="container">
+            <h1 class="section-title">Fonctionnalités</h1>
+            <div class="feature-grid">
+
+                <!-- Fonctionnalité 1: Recherche Gamertag -->
+                <div class="feature-card">
+                    <h2>Recherche Gamertag</h2>
+                    <p>Entrez un pseudonyme Steam ou un SteamID64 et récupérez instantanément le profil, l'avatar,
+                        l'URL, et la dernière connexion du joueur.</p>
+                    <img src="../assets/search.png" alt="Recherche Gamertag" class="feature-image">
+                </div>
+
+                <!-- Fonctionnalité 2: Top 10 Jeux -->
+                <div class="feature-card">
+                    <h2>Top 10 Jeux</h2>
+                    <p>Affichez les 10 jeux les plus joués par le joueur, triés par le temps total de jeu, avec un lien
+                        direct vers leur page Steam.</p>
+                    <img src="../assets/games.png" alt="Top 10 Jeux" class="feature-image">
+                </div>
+
+                <!-- Fonctionnalité 3: Jeux Récents -->
+                <div class="feature-card">
+                    <h2>Jeux Récents</h2>
+                    <p>Découvrez les jeux auxquels le joueur a joué durant les 2 dernières semaines et voyez son temps
+                        de jeu récent.</p>
+                    <img src="../assets/recent.png" alt="Jeux Récents" class="feature-image">
+                </div>
+
+                <!-- Fonctionnalité 4: API Intégrée -->
+                <div class="feature-card">
+                    <h2>API Intégrée</h2>
+                    <p>Notre application utilise l'API officielle Steam pour garantir des données précises et en temps
+                        réel.</p>
+                    <img src="./assets/api.png" alt="API Intégrée" class="feature-image">
+                </div>
+
+            </div>
+        </div>
+    </section>
 </body>
+
 </html>
