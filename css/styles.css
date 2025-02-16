@@ -1,6 +1,10 @@
 /* Importer les polices */
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Montserrat:wght@300;600&display=swap');
 
+* {
+    scroll-behavior: smooth;
+}
+
 /* Variables de couleur */
 :root {
     /* Couleur néon vert-bleu */
