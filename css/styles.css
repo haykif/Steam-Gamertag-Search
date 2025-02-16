@@ -410,15 +410,15 @@ body {
 
 /* Media Queries pour la responsivité */
 @media (max-width: 768px) {
-    .container {
-        width: 95%;
-        padding: 0 10px;
+    .navbar .container {
+        flex-direction: column;
+        align-items: flex-start; /* La brand reste à gauche */
     }
 
     .nav-links {
-        flex-direction: column;
+        flex-direction: column; /* Les liens sont empilés */
+        align-self: flex-end; /* On les décale à droite du container */
         gap: 10px;
-        text-align: right;
     }
 
     .search-form {
