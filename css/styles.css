@@ -416,6 +416,7 @@ body {
         align-items: flex-start; /* La brand reste à gauche */
         display: flex;
         justify-content: space-between;
+        gap: 0;
     }
 
     .nav-links {
