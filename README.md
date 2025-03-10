@@ -1,7 +1,7 @@
 # Steam Gamertag Finder
 
 Steam Gamertag Finder est une application web permettant de rechercher des informations sur les utilisateurs Steam \
-a partir de leur gamertag ou SteamID64.
+à partir de leur gamertag ou SteamID64. Pour accéder au site, cliquez [**ici**](https://steam-gamertag-finder.vercel.app/).
 
 ## Fonctionnalités
 
