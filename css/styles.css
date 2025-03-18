@@ -403,7 +403,6 @@ body {
 
     .navbar .container {
         flex-direction: column;
-        align-items: flex-start; /* La brand reste à gauche */
         display: flex;
         justify-content: space-between;
         gap: 0;
@@ -411,7 +410,8 @@ body {
 
     .nav-links {
         flex-direction: column; /* Les liens sont empilés */
-        align-self: flex-end; /* On les décale à droite du container */
+        align-items: center;
+        margin-top: 15px;
         gap: 10px;
     }
 
