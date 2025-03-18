@@ -4,10 +4,10 @@
 
 Here, you can get more information about latest and current version of the application.
 
-| Version | Supported          |
-| ------- | ------------------ |
-| 4.x     | :white_check_mark: |
-| > 4.x   | :x:                |
+|  Version | Supported          |
+| -------- | ------------------ |
+| v4.x     | :white_check_mark: |
+| < v4.x   | :x:                |
 
 ## Reporting a Vulnerability
 
