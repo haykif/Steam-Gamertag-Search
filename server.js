@@ -135,5 +135,8 @@ app.get('/getRecentlyPlayedGames', async (req, res) => {
     }
 });
 
-
+// Route pour le features
+app.get('/.well-known/discord', (req, res) => {
+    res.sendFile(path.join(__dirname, 'auth/discord.txt'));
+});
 module.exports = app;
