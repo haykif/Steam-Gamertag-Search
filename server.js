@@ -145,3 +145,8 @@ module.exports = app;
 app.get('/robots.txt', (req, res) => {
     res.sendFile(path.join(__dirname, 'robots.txt'));
 });
+
+// Route pour sitemap.xml
+app.get('/sitemap.xml', (req, res) => {
+    res.sendFile(path.join(__dirname, 'sitemap.xml'));
+});
