@@ -140,3 +140,8 @@ app.get('/.well-known/discord', (req, res) => {
     res.sendFile(path.join(__dirname, 'auth/discord.txt'));
 });
 module.exports = app;
+
+// Route pour robots.txt
+app.get('/robots.txt', (req, res) => {
+    res.sendFile(path.join(__dirname, 'robots.txt'));
+});
