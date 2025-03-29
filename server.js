@@ -152,7 +152,7 @@ app.get('/sitemap.xml', (req, res) => {
 });
 
 // Route pour preview.png
-app.get('/assets/preview.png', (req, res) => {
+app.get('/preview.png', (req, res) => {
     res.sendFile(path.join(__dirname, 'assets/preview.png'));
 });
   

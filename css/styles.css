@@ -331,26 +331,29 @@ body {
     color: var(--secondary-color);
     text-shadow: 0 0 5px var(--secondary-color);
 }
-  
+
 .about .container p {
     margin: 0.5rem 0;
     font-size: 1rem;
     line-height: 1.6;
     color: var(--text-color);
 }
-  
+
 .about .container a:link,
 .about .container a:visited {
     color: var(--primary-color);
     text-decoration: underline;
     transition: color 0.3s ease, text-shadow 0.3s ease;
 }
-  
+
 .about .container a:hover {
     color: var(--secondary-color);
     text-shadow: 0 0 10px var(--secondary-color);
 }
-  
+
+.about .container a:active {
+    color: #ff00ee;
+}
 
 /* Effet de transition lors du changement de page */
 .fade {
