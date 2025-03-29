@@ -150,3 +150,9 @@ app.get('/robots.txt', (req, res) => {
 app.get('/sitemap.xml', (req, res) => {
     res.sendFile(path.join(__dirname, 'sitemap.xml'));
 });
+
+// Route pour preview.png
+app.get('/assets/preview.png', (req, res) => {
+    res.sendFile(path.join(__dirname, 'assets/preview.png'));
+});
+  
