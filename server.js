@@ -157,6 +157,6 @@ app.get('/preview.png', (req, res) => {
 });
 
 // Route pour bingSiteAuth.xml
-app.get('/bingSiteAuth.xml', (req, res) => {
-    res.sendFile(path.join(__dirname, 'bingSiteAuth.xml'));
+app.get('/BingSiteAuth.xml', (req, res) => {
+    res.sendFile(path.join(__dirname, 'BingSiteAuth.xml'));
 });
