@@ -339,6 +339,9 @@ body {
     color: var(--text-color);
 }
   
+.about a {
+    text-decoration: none;
+}
 .about .container a {
     color: var(--primary-color);
     text-decoration: underline;
