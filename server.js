@@ -16,6 +16,9 @@ const limiter = RateLimit({
 // favicon de fou
 app.use(favicon(path.join(__dirname, 'favicon.ico')));
 
+
+app.use(express.json());
+
 // apply rate limiter to all requests
 app.use(limiter);
 
@@ -159,4 +162,34 @@ app.get('/preview.png', (req, res) => {
 // Route pour bingSiteAuth.xml
 app.get('/BingSiteAuth.xml', (req, res) => {
     res.sendFile(path.join(__dirname, 'BingSiteAuth.xml'));
+});
+
+app.post('/submitIndexNow', async (req, res) => {
+    console.log('Requête reçue pour IndexNow avec params :', req.body);
+
+    const { urlList } = req.body;
+    const INDEXNOW_KEY = process.env.INDEXNOW_API_KEY;
+
+    if (!urlList || !Array.isArray(urlList) || urlList.length === 0) {
+        return res.status(400).json({ error: 'Le champ "urlList" est requis et doit être un tableau non vide.' });
+    }
+
+    const payload = {
+        key: INDEXNOW_KEY,
+        urlList
+    };
+
+    try {
+        const response = await axios.post('https://api.indexnow.org/IndexNow', payload, {
+            headers: {
+                'Content-Type': 'application/json; charset=utf-8'
+            }
+        });
+
+        console.log('IndexNow succès :', response.data);
+        res.json({ success: true, data: response.data });
+    } catch (error) {
+        console.error('Erreur IndexNow :', error.message);
+        res.status(500).json({ error: 'Erreur lors de la communication avec IndexNow.' });
+    }
 });
