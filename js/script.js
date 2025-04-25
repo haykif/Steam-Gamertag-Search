@@ -9,11 +9,14 @@ document.addEventListener('DOMContentLoaded', () => {
     let playerData;
 
     navLinks.forEach(link => {
+        // Vérifie si le lien correspond au chemin actuel
         if (link.getAttribute('href') === currentPath) {
             link.classList.add('active');
+        } else {
+            link.classList.remove('active');
         }
     });
-    
+
     gamertagForm.addEventListener('submit', (e) => {
         e.preventDefault();
         const gamertag = gamertagInput.value.trim();
