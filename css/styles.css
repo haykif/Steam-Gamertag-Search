@@ -530,3 +530,76 @@ body {
         font-size: 0.9rem;
     }
 }
+
+/* Pour les très petits écrans genre c'est devenu carrément une relique tellement il force pour ne pas le changer*/
+@media (max-width: 320px) {
+    /* Navigation */
+    .navbar .container {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .nav-item {
+        font-size: 0.8rem;
+    }
+
+    /* Titre principal */
+    .title {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+    }
+
+    /* Formulaire de recherche */
+    .search-input {
+        width: 90%;
+        padding: 0.5rem;
+        font-size: 0.85rem;
+    }
+
+    .search-button {
+        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
+    }
+
+    /* Résultats */
+    .result-container h3 {
+        font-size: 1.5rem;
+    }
+
+    .result-container li {
+        flex-direction: column;
+        padding: 10px;
+        text-align: center;
+    }
+
+    .result-container li span {
+        font-size: 0.9rem;
+    }
+
+    .result-container li a {
+        font-size: 0.85rem;
+    }
+
+    /* Footer */
+    .footer {
+        padding: 1rem 0;
+    }
+
+    .footer p {
+        font-size: 0.75rem;
+    }
+
+    .footer-links {
+        gap: 10px;
+    }
+
+    .footer-links li a {
+        font-size: 0.75rem;
+    }
+}
