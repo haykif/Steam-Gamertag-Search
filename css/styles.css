@@ -602,4 +602,42 @@ body {
     .footer-links li a {
         font-size: 0.75rem;
     }
+
+    /* Images des fonctionnalités */
+    .feature-image {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* Grille des fonctionnalités */
+    .feature-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .feature-card {
+        padding: 1rem;
+    }
+
+    /* Marges et espacements */
+    .container {
+        width: 95%;
+    }
+
+    .search-container {
+        margin-top: 2rem;
+    }
+
+    .result-container {
+        margin-top: 2rem;
+    }
+
+    .feature-card p {
+        font-size: 0.9rem;
+    }
+
+    /* Désactiver les animations */
+    * {
+        animation: none !important;
+    }
 }
