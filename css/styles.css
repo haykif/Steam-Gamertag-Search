@@ -26,6 +26,8 @@ body {
     padding: 0;
     line-height: 1.6;
     animation: fadeIn 1.5s ease-in-out;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
 }
 
 /* Barre de navigation */
@@ -80,6 +82,11 @@ body {
 .nav-item:hover {
     color: var(--secondary-color);
     transform: scale(1.1);
+}
+
+.nav-item.active {
+    font-weight: bold;
+    color: var(--secondary-color);
 }
 
 /* Formulaire de recherche */

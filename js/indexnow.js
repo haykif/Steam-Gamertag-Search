@@ -18,5 +18,8 @@ window.addEventListener('load', () => {
     })
     .then(res => res.json())
     .then(data => console.log('[IndexNow] Ping réussi:', data))
-    .catch(err => console.error('[IndexNow] Erreur:', err));
+    .catch(err => {
+        console.error('[IndexNow] Erreur:', err);
+        alert('Une erreur est survenue lors de l\'envoi à IndexNow. Veuillez réessayer plus tard.');
+    });
 });

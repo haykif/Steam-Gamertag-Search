@@ -26,7 +26,7 @@
         <div class="container">
             <a href="/" class="brand">Steam Gamertag Finder</a>
             <ul class="nav-links">
-                <li><a href="/" class="nav-item">Accueil</a></li>
+                <li><a href="/" class="nav-item" id="aboutLink">Accueil</a></li>
                 <li><a href="/features" class="nav-item">Fonctionnalités</a></li>
                 <li><a href="/about" class="nav-item">À propos</a></li>
             </ul>
@@ -48,7 +48,10 @@
         <!-- Les résultats s'afficheront ici dynamiquement -->
     </div>
 
-    <div id="loader" style="display: none;">Recherche en cours...</div>
+    <div id="loader" style="display: none; text-align: center;">
+        <p>Recherche en cours, veuillez patienter...</p>
+        <img src="./assets/loadermini.gif" alt="Chargement" style="width: 50px; height: 103px;">
+    </div>
 
     <!-- Les Scripts -->
     <script src="./js/script.js"></script>

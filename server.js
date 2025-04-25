@@ -63,8 +63,11 @@ app.get('/resolveVanityURL', async (req, res) => {
         console.log('Données reçues de ResolveVanityURL :', response.data); // LOG
         res.json(response.data);
     } catch (error) {
-        console.error('Erreur dans ResolveVanityURL :', error.message);
-        res.status(500).json({ error: error.message });
+        console.error('[ResolveVanityURL] Erreur :', error.message, 'Requête :', req.query);
+        res.status(500).json({
+            error: 'Une erreur est survenue lors de la résolution du Vanity URL.',
+            details: error.message
+        });
     }
 });
 
@@ -164,14 +167,30 @@ app.get('/BingSiteAuth.xml', (req, res) => {
     res.sendFile(path.join(__dirname, 'BingSiteAuth.xml'));
 });
 
+app.get('/submitIndexNow', (req, res) => {
+    res.status(405).json({
+        error: 'Cette route accepte uniquement les requêtes POST.',
+        message: 'Envoyez une requête POST avec un corps JSON contenant un tableau "urlList".'
+    });
+});
+
 app.post('/submitIndexNow', async (req, res) => {
     console.log('Requête reçue pour IndexNow avec params :', req.body);
 
     const { urlList } = req.body;
     const INDEXNOW_KEY = process.env.INDEXNOW_API_KEY;
 
-    if (!urlList || !Array.isArray(urlList) || urlList.length === 0) {
-        return res.status(400).json({ error: 'Le champ "urlList" est requis et doit être un tableau non vide.' });
+    const isValidUrl = (url) => {
+        try {
+            new URL(url);
+            return true;
+        } catch {
+            return false;
+        }
+    };
+    
+    if (!urlList || !Array.isArray(urlList) || urlList.length === 0 || !urlList.every(isValidUrl)) {
+        return res.status(400).json({ error: 'Le champ "urlList" est requis, doit être un tableau non vide, et contenir uniquement des URLs valides.' });
     }
 
     const payload = {

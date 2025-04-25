@@ -3,9 +3,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const gamertagInput = document.getElementById('gamertagInput');
     const resultContainer = document.getElementById('resultContainer');
     const loader = document.getElementById('loader');
+    const currentPath = window.location.pathname;
+    const navLinks = document.querySelectorAll('.nav-item');
 
     let playerData;
 
+    navLinks.forEach(link => {
+        if (link.getAttribute('href') === currentPath) {
+            link.classList.add('active');
+        }
+    });
+    
     gamertagForm.addEventListener('submit', (e) => {
         e.preventDefault();
         const gamertag = gamertagInput.value.trim();
@@ -126,9 +134,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Block Erreur
             .catch(err => {
-                console.error(err);
-                resultContainer.innerHTML = `<p style="color: #ff007f;"><b>Erreur : ${err.message}</b></p>`;
+                console.error('[Erreur]', err);
+                resultContainer.innerHTML = `
+                    <p style="color: #ff007f;">
+                        <b>Une erreur est survenue :</b> ${err.message}.<br>
+                        Veuillez vérifier votre connexion ou réessayer plus tard.
+                    </p>`;
             })
+            
             .finally(() => {
                 loader.style.display = 'none';
             });
@@ -154,5 +167,5 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Rétablir l'opacité de la page à l'affichage
-    document.body.style.opacity = 1;
+    document.body.classList.add('fade-in');
 });
