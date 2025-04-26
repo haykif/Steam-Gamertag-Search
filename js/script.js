@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     resultContainer.innerHTML = `
                         <h3>Profil de ${player.personaname}</h3>
                         <img src="${player.avatarfull}" alt="Avatar de ${player.personaname}">
-                        <p>URL du profil : <a href="${player.profileurl}" target="_blank">${player.profileurl}</a></p>
+                        <p>URL du profil : <a style="@media (max-width: 768px) { font-size: 0.5rem; }" href="${player.profileurl}" target="_blank">${player.profileurl}</a></p>
                         <p>Dernière connexion : ${new Date(player.lastlogoff * 1000).toLocaleString()}</p>
                     `;
                     return fetch(`/getOwnedGames?steamid=${player.steamid}`);
