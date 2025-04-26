@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function updateProfileLinkSize() {
         const profileLink = document.getElementById('profileLink');
         if (profileLink) {
-            profileLink.style.fontSize = window.innerWidth <= 768 ? '0.85rem' : '1.5rem';
+            profileLink.style.fontSize = window.innerWidth <= 768 ? '0.95rem' : '1.5rem';
         }
     }
 
