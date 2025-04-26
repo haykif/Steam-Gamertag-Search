@@ -19,6 +19,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    function updateProfileLinkSize() {
+        const profileLink = document.getElementById('profileLink');
+        if (profileLink) {
+            profileLink.style.fontSize = window.innerWidth <= 768 ? '0.5rem' : '1rem';
+        }
+    }
+
+    window.addEventListener('resize', updateProfileLinkSize);
+
     gamertagForm.addEventListener('submit', (e) => {
         e.preventDefault();
         const gamertag = gamertagInput.value.trim();
@@ -63,9 +72,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     resultContainer.innerHTML = `
                         <h3>Profil de ${player.personaname}</h3>
                         <img src="${player.avatarfull}" alt="Avatar de ${player.personaname}">
-                        <p>URL du profil : <a style="@media (max-width: 768px) { font-size: 0.5rem; }" href="${player.profileurl}" target="_blank">${player.profileurl}</a></p>
+                        <p>URL du profil : <a id="profileLink" href="${player.profileurl}" target="_blank">${player.profileurl}</a></p>
                         <p>Dernière connexion : ${new Date(player.lastlogoff * 1000).toLocaleString()}</p>
                     `;
+                    updateProfileLinkSize();
                     return fetch(`/getOwnedGames?steamid=${player.steamid}`);
                 } else {
                     resultContainer.innerHTML = `<p style="color: #ff007f;"><b>Aucun joueur trouvé pour ce SteamID.</b></p>`;
