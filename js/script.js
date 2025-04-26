@@ -5,6 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const loader = document.getElementById('loader');
     const currentPath = window.location.pathname;
     const navLinks = document.querySelectorAll('.nav-item');
+    const footer = document.getElementById('footer');
+
 
     let playerData;
 
@@ -147,6 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             .finally(() => {
                 loader.style.display = 'none';
+                footer.style.display = 'block';
             });
     });
 

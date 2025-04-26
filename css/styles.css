@@ -90,7 +90,7 @@ body {
     transform: scale(1.1);
 }
 
-.nav-item.active {
+#active {
     font-weight: bold;
     color: var(--secondary-color);
 }
@@ -338,33 +338,33 @@ body {
 }
 
 /* Bloc Disclaimer */
-.disclaimer .container h2 {
+.sections .container h2 {
     font-size: 1.4rem;
     margin-top: 2rem;
     color: var(--secondary-color);
     text-shadow: 0 0 5px var(--secondary-color);
 }
 
-.disclaimer .container p {
+.sections .container p {
     margin: 0.5rem 0;
     font-size: 1rem;
     line-height: 1.6;
     color: var(--text-color);
 }
 
-.disclaimer .container a:link,
-.disclaimer .container a:visited {
+.sections .container a:link,
+.sections .container a:visited {
     color: var(--primary-color);
     text-decoration: underline;
     transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
-.disclaimer .container a:hover {
+.sections .container a:hover {
     color: var(--secondary-color);
     text-shadow: 0 0 10px var(--secondary-color);
 }
 
-.disclaimer .container a:active {
+.sections .container a:active {
     color: #ff00ee;
 }
 
