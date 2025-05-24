@@ -43,24 +43,37 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Résolution du vanity URL
         fetch(`/resolveVanityURL?vanityurl=${gamertag}`)
-            .then(response => response.json())
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Erreur lors de la résolution du vanity URL');
+                }
+                return response.json();
+            })
             .then(data => {
                 if (data.response.success === 1) {
                     // Vanity URL résolue avec succès
                     const steamID64 = data.response.steamid;
                     console.log(`SteamID64 trouvé pour le vanity URL "${gamertag}" : ${steamID64}`);
-                    return fetch(`/getPlayerSummaries?steamid=${steamID64}`);
+                    // Ajout d'un délai de sécurité de 500ms
+                    return new Promise(resolve => setTimeout(() => {
+                        resolve(fetch(`/getPlayerSummaries?steamid=${steamID64}`));
+                    }, 500));
                 } else {
                     // Si ResolveVanityURL échoue, considérer que c'est un SteamID64
                     console.warn(`Impossible de résoudre "${gamertag}" en vanity URL. Tentative avec SteamID64.`);
-                    console.warn(`Tentative réussie avec succès`);
-                    return fetch(`/getPlayerSummaries?steamid=${gamertag}`);
+                    return new Promise(resolve => setTimeout(() => {
+                        resolve(fetch(`/getPlayerSummaries?steamid=${gamertag}`));
+                    }, 500));
                 }
             })
 
             // Block profil privée/inaccessible
             .then(response => {
-                if (!response.ok) throw new Error('Ce profil est privé ou non accessible.');
+                if (!response.ok) {
+                    const error = new Error('Ce profil est temporairement inaccessible. Veuillez réessayer.');
+                    error.status = response.status;
+                    throw error;
+                }
                 return response.json();
             })
 
@@ -150,10 +163,21 @@ document.addEventListener('DOMContentLoaded', () => {
             // Block Erreur
             .catch(err => {
                 console.error('[Erreur]', err);
+                let errorMessage = err.message;
+                
+                // Gestion plus précise des erreurs
+                if (err.status === 403) {
+                    errorMessage = 'Ce profil est privé ou temporairement inaccessible. Veuillez réessayer dans quelques secondes.';
+                } else if (err.status === 429) {
+                    errorMessage = 'Trop de requêtes. Veuillez patienter quelques instants.';
+                } else if (err.status === 500) {
+                    errorMessage = 'Le serveur Steam est temporairement indisponible. Veuillez réessayer.';
+                }
+
                 resultContainer.innerHTML = `
                     <p style="color: #ff007f;">
-                        <b>Une erreur est survenue :</b> ${err.message}.<br>
-                        Veuillez vérifier votre connexion ou réessayer plus tard.
+                        <b>${errorMessage}</b><br>
+                        Si le problème persiste, rafraîchissez la page.
                     </p>`;
             })
             
